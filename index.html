@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quer passar o resto da sua vida comigo?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #722626;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-size: cover;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ca1818;
+        }
+
+        .mensagem {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button.sim {
+            background-color: #a32525;
+            color: white;
+        }
+
+        button.nao {
+            background-color: #666;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #ff99cc;
+        }
+
+        #resposta {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            color: #ff66b2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <h1>Quer passar o resto da sua vida comigo?</h1>
+        <p class="mensagem">Desde o momento em que te conheci, soube que você era especial. Cada instante ao seu lado é maravilhoso e eu gostaria de viver muitos outros assim com você.</p>
+        <div class="buttons">
+            <button class="sim" onclick="aceitou()">Sim</button>
+            <button class="nao" id="nao-btn" onmouseover="fugir()">Não</button>
+        </div>
+        <p id="resposta"></p>
+    </div>
+
+    <script>
+        // Função que muda o fundo quando clicar em "Sim"
+        function aceitou() {
+            document.getElementById('resposta').innerHTML = "Eu sabia que você diria sim! 💖";
+            document.body.style.backgroundImage = "url('sua-foto.jpg')";
+            document.body.style.backgroundSize = "cover";
+        }
+
+        // Função que move o botão "Não" quando o mouse passar por cima
+        function fugir() {
+            const naoBtn = document.getElementById('nao-btn');
+            const container = document.getElementById('container');
+            
+            // Gerando novas posições para o botão dentro do container
+            const posX = Math.random() * (container.offsetWidth - naoBtn.offsetWidth);
+            const posY = Math.random() * (container.offsetHeight - naoBtn.offsetHeight);
+
+            naoBtn.style.position = 'absolute';
+            naoBtn.style.left = `${posX}px`;
+            naoBtn.style.top = `${posY}px`;
+        }
+    </script>
+</body>
+</html>
